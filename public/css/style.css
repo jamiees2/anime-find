@@ -1,0 +1,56 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
+  color: #111;
+}
+
+.stuff {
+	width: 50%;
+	margin: 0 auto;
+	min-width:400px;
+}
+
+label {
+	display: none;
+}
+
+@media(max-width: 500px) {
+	.stuff {
+		width: 100%;
+		min-width: initial;
+	}
+
+	label {
+		display: block;
+	}
+}
+h2 {
+	display: none;
+}
+
+input[type=text] {
+	padding: 10px;
+	border-radius: 3px;
+	border: 2px solid #ddd;
+	width: 100%;
+	font-size: 1.5em;
+}
+
+input[type=submit] {
+	display: block;
+	background-color: #111;
+	color: white;
+	padding: 10px 15px;
+	border-radius: 3px;
+	border: none;
+	text-transform: uppercase;
+	font-weight: bold;
+	font-size: 1.5em;
+	width: 50%;
+	margin: 15px auto 0;
+}
+
+a {
+	color: inherit;
+}

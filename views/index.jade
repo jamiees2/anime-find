@@ -1,0 +1,27 @@
+extends layout
+
+block content
+    div.stuff
+        h1 WHAT ANIME SHOULD I WATCH
+        form(action="/getanime" method="get" id="form")
+            label WHAT THE FUCK IS YOUR MAL USERNAME
+            input(type="text" placeholder="WHAT THE FUCK IS YOUR MAL USERNAME" name="username" required="required")
+            input(type="submit")
+        h2
+            | YOU SHOULD FUCKING WATCH 
+            span.anime
+
+append js
+    script.
+        $(document).on('ready',function(){
+            $('#form').on('submit', function(e){
+                e.preventDefault();
+                $.getJSON('/getanime', {name: $('input[name=username]').val() }, function(data){
+                    $("h2").show();
+                    if (data === null)
+                        return $("h2").text("myanimelist is being gay, please try again later")
+                    $('h2 span.anime')
+                        .html("<a href='http://myanimelist.net/anime/" + data.series_animedb_id[0] + "'>"+data.series_title[0]+"</a>");
+                });
+            });
+        });
