@@ -23,15 +23,13 @@ router = express.Router()
 
 # GET home page.
 router.get '/', (req, res) ->
-  res.render 'index', { title: 'Express' }
+  res.render 'index', { title: 'WHAT THE FUCK SHOULD I WATCH' }
 
 router.get '/getanime', (req, res) ->
   getXML "http://myanimelist.net/malappinfo.php?u=#{req.query.name}&status=all&type=anime", (body) ->
     parseString body, (err, result) ->
-      return res.json null unless result?
-      anime = _.filter result["myanimelist"]["anime"], (item) ->
-        return item["my_status"][0] is "6"
-      return res.json _.sample(anime)
+      return res.json(if result? then result else null)
+      
   # request.get "http://myanimelist.net/malappinfo.php?u=#{req.query.name}&status=all&type=anime", (err, d, body) ->
   #   console.log body
   #   parseString body, (err, result) ->
