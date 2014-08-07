@@ -29,18 +29,28 @@ body {
 label {
 	display: block;
 }
-
-@media(max-width: 500px) {
-	
-}
+input.responsive::-webkit-input-placeholder { color: rgba(0, 0, 0, 0); }
+input.responsive::-moz-placeholder { color: rgba(0, 0, 0, 0); }
+input.responsive:-moz-placeholder { color: rgba(0, 0, 0, 0); }
+input.responsive:-ms-input-placeholder { color: rgba(0, 0, 0, 0); }
 @media only screen and (min-width: 30em) {
 	.stuff {
-		width: 50%;
+		width: 85%;
 		min-width: 40rem;
 	}
 
 	label {
 		display: none;
+	}
+	input.responsive::-webkit-input-placeholder { color: rgb(169, 169, 169); }
+    input.responsive::-moz-placeholder { color: rgb(169, 169, 169); }
+    input.responsive:-moz-placeholder { color: rgb(169, 169, 169); }
+    input.responsive:-ms-input-placeholder { color: rgb(169, 169, 169); }
+    
+}
+@media only screen and (min-width: 65em) {
+	.stuff {
+		width: 50%;
 	}
 }
 h2 {
@@ -79,6 +89,9 @@ input {
 -o-transition: all linear 0.3s;
 transition: all linear 0.3s;
 }
+
+
+
 
 
 @media only screen and (min-width: 65em) {
